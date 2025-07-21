@@ -1,2 +1,7 @@
-# fronius-bc
+# Fronius-Battery-Control (fronius-bc)
+
+Compile:
+```
+env GOOS=linux GOARCH=amd64 go build -o fronius-bc
+```
 

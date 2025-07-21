@@ -1,6 +1,6 @@
 module fronius-battery-control
 
-go 1.24.2
+go 1.23.9
 
 require (
 	github.com/aldas/go-modbus-client v0.0.0-20250404053750-8ec1b3d9be0a // indirect
