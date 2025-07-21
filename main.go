@@ -187,8 +187,8 @@ func main() {
 	
 	slog.SetDefault(logger)
 	slog.Debug("Application started")
-	slog.Debug("Config Setting","Version",curVersion)
-	slog.Debug("Config Setting","Build",curBuild)
+	slog.Info("Config Setting","Version",curVersion)
+	slog.Info("Config Setting","Build",curBuild)
 
 	if Interval != 0 {
 		for {
