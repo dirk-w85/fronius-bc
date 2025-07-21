@@ -10,6 +10,9 @@ import (
 	"github.com/spf13/viper"
 )
 
+var curVersion string
+var curBuild string
+
 //---------------- STRUCTS -----------------
 type LOWESTPrice struct {
 	Price 	float64
@@ -174,7 +177,6 @@ func main() {
 	//var evccBatteryLimit = viper.GetFloat64("evcc.batteryLimit")
 	var Interval = viper.GetInt("global.interval")
 	var evccState LOWESTPrice
-	var version = "undefined"
 
 	fmt.Println("\n-- Fronius Battery Control via EVCC --\n")
 
@@ -185,7 +187,8 @@ func main() {
 	
 	slog.SetDefault(logger)
 	slog.Debug("Application started")
-	slog.Debug("Config Setting","Version",version)
+	slog.Debug("Config Setting","Version",curVersion)
+	slog.Debug("Config Setting","Build",curBuild)
 
 	if Interval != 0 {
 		for {
