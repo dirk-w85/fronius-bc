@@ -1,0 +1,14 @@
+[Unit]
+Description=Fronius Battery Control
+After=network.target
+
+[Service]
+Type=simple
+User=root
+ExecStart=/usr/local/bin/fronius-bc
+Restart=on-failure
+#Environment="N8N_SECURE_COOKIE=false"
+
+[Install]
+WantedBy=multi-user.target
+Alias=fronius-bc.service

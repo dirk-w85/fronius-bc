@@ -1,0 +1,17 @@
+# Global Settings
+[global]
+debug = true
+interval = 60
+
+# EVCC Settings
+[evcc]
+host = "evcc-01:7070"
+batteryLimit = 75
+    [evcc.morning]
+    start = 0
+    end = 6
+    batteryLimit = 75
+    [evcc.afternoon]
+    start = 12
+    end = 19
+    batteryLimit = 90
