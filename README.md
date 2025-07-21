@@ -1,7 +1,12 @@
 # Fronius-Battery-Control (fronius-bc)
 
+Run:
+```
+go run -ldflags "-X main.curVersion=$(git describe --always --long) -X 'main.curBuild=$(date)'" main.go
+```
+
 Compile:
 ```
-env GOOS=linux GOARCH=amd64 go build -o fronius-bc
+sh build.sh
 ```
 
