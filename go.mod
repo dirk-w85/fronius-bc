@@ -3,7 +3,6 @@ module fronius-battery-control
 go 1.23.9
 
 require (
-	github.com/aldas/go-modbus-client v0.0.0-20250404053750-8ec1b3d9be0a // indirect
 	github.com/fsnotify/fsnotify v1.8.0 // indirect
 	github.com/go-viper/mapstructure/v2 v2.2.1 // indirect
 	github.com/goburrow/serial v0.1.0 // indirect

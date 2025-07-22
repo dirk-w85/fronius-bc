@@ -1,5 +1,3 @@
-github.com/aldas/go-modbus-client v0.0.0-20250404053750-8ec1b3d9be0a h1:9DzX2CGGQBjgEkK1VztP57AiBbd2LcFmPAtUmiyWdqA=
-github.com/aldas/go-modbus-client v0.0.0-20250404053750-8ec1b3d9be0a/go.mod h1:YpKeXA4DzR+2GIABYuyEvtSf3B6UCykckIfeZKtmAE4=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/fsnotify/fsnotify v1.8.0 h1:dAwr6QBTBZIkG8roQaJjGof0pp0EeF+tNV7YBP3F/8M=
