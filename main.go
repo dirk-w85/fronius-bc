@@ -59,6 +59,7 @@ func getEVCCState(url string, start int, end int, batteryLimit float64)(LOWESTPr
 	}
 
 	var lowestPrice LOWESTPrice
+	slog.Debug(fmt.Sprintf("%d Price Steps received", len(evccResp.Result.Forecast.Grid)))
 	if len(evccResp.Result.Forecast.Grid) >0 {
 		lowestPrice.Price = evccResp.Result.Forecast.Grid[0].Price
 		lowestPrice.CurrentPrice = evccResp.Result.TariffGrid
