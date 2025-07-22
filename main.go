@@ -98,7 +98,7 @@ func setEVCCCharging(url string, evccState LOWESTPrice){
 
 	slog.Info(fmt.Sprintf("Lowest Price: %.3f Euro/kWh starting at %s", evccState.Price, evccState.Start))
 	slog.Debug(fmt.Sprintf("Lowest Price: %.3f Euro/kWh ending at %s", evccState.Price, evccState.End)) 
-
+ 
 	t := time.Now()
 
 	if t.Hour() >= evccState.Start.Hour() && t.Hour() < evccState.End.Hour(){
