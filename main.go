@@ -10,6 +10,7 @@ import (
 	"github.com/spf13/viper"
 )
 
+const baseVersion = "v0.1."
 var curVersion string
 var curBuild string
 
@@ -188,7 +189,7 @@ func main() {
 	
 	slog.SetDefault(logger)
 	slog.Debug("Application started")
-	slog.Info("Config Setting","Version",curVersion)
+	slog.Info("Config Setting","Version",baseVersion+curVersion)
 	slog.Info("Config Setting","Build",curBuild)
 
 	if Interval != 0 {
