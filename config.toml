@@ -5,7 +5,7 @@ interval = 60
 
 # EVCC Settings
 [evcc]
-host = "evcc-01:7070"
+host = "evcc-01.kbs1.net:7070"
 batteryLimit = 75
     [evcc.morning]
     start = 0

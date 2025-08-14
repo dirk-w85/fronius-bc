@@ -26,19 +26,17 @@ type LOWESTPrice struct {
 	CurrentPrice float64
 }
 
-type EVCCState struct {
-	Result struct {		
-		BatteryMode				string `json:"batteryMode"`
-		BatterySoc              float64 `json:"batterySoc"`
-		TariffGrid				float64 `json:"tariffGrid"`
-		Forecast                struct {
-			Grid []struct {
-				Start time.Time `json:"start"`
-				End   time.Time `json:"end"`
-				Price float64   `json:"value"`
-			} `json:"grid"`
-		} `json:"forecast"`
-	}
+type EVCCState struct {		
+	BatteryMode				string `json:"batteryMode"`
+	BatterySoc              float64 `json:"batterySoc"`
+	TariffGrid				float64 `json:"tariffGrid"`
+	Forecast                struct {
+		Grid []struct {
+			Start time.Time `json:"start"`
+			End   time.Time `json:"end"`
+			Price float64   `json:"value"`
+		} `json:"grid"`
+	} `json:"forecast"`
 }
 
 //---------------- FUNCTIONS -----------------
@@ -60,19 +58,19 @@ func getEVCCState(url string, start int, end int, batteryLimit float64)(LOWESTPr
 	}
 
 	var lowestPrice LOWESTPrice
-	slog.Debug(fmt.Sprintf("%d Price Steps received", len(evccResp.Result.Forecast.Grid)))
-	if len(evccResp.Result.Forecast.Grid) >0 {
-		lowestPrice.Price = evccResp.Result.Forecast.Grid[0].Price
-		lowestPrice.CurrentPrice = evccResp.Result.TariffGrid
+	slog.Debug(fmt.Sprintf("%d Price Steps received", len(evccResp.Forecast.Grid)))
+	if len(evccResp.Forecast.Grid) >0 {
+		lowestPrice.Price = evccResp.Forecast.Grid[0].Price
+		lowestPrice.CurrentPrice = evccResp.TariffGrid
 
 		// Lowest Price between START and END
 		for i :=start; i<=end; i++ {
-			if evccResp.Result.Forecast.Grid[i].Price <= lowestPrice.Price {
-				lowestPrice.Price = evccResp.Result.Forecast.Grid[i].Price
+			if evccResp.Forecast.Grid[i].Price <= lowestPrice.Price {
+				lowestPrice.Price = evccResp.Forecast.Grid[i].Price
 				//lowestPrice.Iter = i
-				lowestPrice.Start = evccResp.Result.Forecast.Grid[i].Start
-				lowestPrice.End = evccResp.Result.Forecast.Grid[i].End
-				lowestPrice.BatteryMode = evccResp.Result.BatteryMode
+				lowestPrice.Start = evccResp.Forecast.Grid[i].Start
+				lowestPrice.End = evccResp.Forecast.Grid[i].End
+				lowestPrice.BatteryMode = evccResp.BatteryMode
 			}
 		}
 	}else{
@@ -81,7 +79,7 @@ func getEVCCState(url string, start int, end int, batteryLimit float64)(LOWESTPr
 	}
 
 	lowestPrice.BatteryLimit = batteryLimit
-	lowestPrice.SoC = evccResp.Result.BatterySoc
+	lowestPrice.SoC = evccResp.BatterySoc
 	
 	slog.Debug(fmt.Sprintf("Battery SoC: %.0f - (Limit: %.0f)", lowestPrice.SoC, lowestPrice.BatteryLimit))
 	slog.Debug(fmt.Sprintf("Battery Mode: %s", lowestPrice.BatteryMode))
